@@ -1,0 +1,26 @@
+version: '3'
+services:
+    api-gateway:
+      container_name: api-gateway-container
+      build:
+        context: services/api-gateway
+        dockerfile: Dockerfile
+      ports:
+        - "3001:3001"
+      networks:
+        - default
+      restart:
+        on-failure
+    pc-builds:
+      container_name: pc-builds-container
+      build:
+        context: services/pc-builds
+        dockerfile: Dockerfile
+      ports:
+        - "3011:3011"
+      networks:
+        - default
+      restart:
+        on-failure
+networks:
+  microservices-network: {}

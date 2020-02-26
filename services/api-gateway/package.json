@@ -1,0 +1,38 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "BLDYR API Gateway Microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "npm run clean && node_modules/.bin/webpack --env development --config config/webpack.config.js",
+    "build:production": "npm run clean && node_modules/.bin/webpack --env production --config config/webpack.config.js",
+    "clean": "rm -rf build",
+    "start:dev": "npm run build:dev && NODE_ENV=development node dist/api-gateway.app.js",
+    "start": "npm run build:production && NODE_ENV=production node dist/api-gateway.app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BLDYR/services.git"
+  },
+  "author": "JV Estolas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BLDYR/services/issues"
+  },
+  "homepage": "https://github.com/BLDYR/services#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
