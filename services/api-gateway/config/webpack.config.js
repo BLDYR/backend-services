@@ -5,7 +5,7 @@ module.exports = (env) => {
   return {
     devtool: 'source-map',
     target: 'node',
-    externals: nodeExternals(),
+    externals: [nodeExternals()],
     mode: env,
     entry: path.resolve(__dirname, '../app/index.js'),
     output: {

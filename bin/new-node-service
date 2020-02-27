@@ -1,0 +1,58 @@
+#!/bin/bash
+
+read -p "Christen the new service: " SERVICE_NAME;
+read -p "Service description: " SERVICE_DESCRIPTION;
+read -p "Author: " SERVICE_AUTHOR;
+
+mkdir "services/$SERVICE_NAME"
+cd "services/$SERVICE_NAME"
+
+/usr/bin/expect <<!
+
+spawn npm init
+expect "package name:"
+send "$SERVICE_NAME\n"
+expect "version:"
+send "\n"
+expect "description:"
+send "$SERVICE_DESCRIPTION\n"
+expect "entry point:"
+send "\n"
+expect "test command:"
+send "\n"
+expect "git repository"
+send "\n"
+expect "keywords:"
+send "\n"
+expect "author:"
+send "$SERVICE_AUTHOR\n"
+expect "license:"
+send "\n"
+expect "Is this *?"
+send "\n"
+
+expect eof
+!
+
+npm install express
+
+touch Dockerfile
+mkdir app
+touch app/index.js
+
+
+cd -
+cat <<PHRESH
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+Done! The new node service can be found in services/$SERVICE_NAME
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+PHRESH
+
+unset SERVICE_NAME
+unset SERVICE_DESCRIPTION
+unset SERVICE_AUTHOR
+unset SERVICE_OKAY

@@ -22,5 +22,3 @@ services:
         - default
       restart:
         on-failure
-networks:
-  microservices-network: {}
