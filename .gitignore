@@ -3,3 +3,6 @@ dist
 build
 credentials
 keys
+.env
+env.sh
+config.sh

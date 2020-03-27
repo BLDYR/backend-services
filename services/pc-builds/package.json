@@ -1,15 +1,15 @@
 {
   "name": "pc-builds",
   "version": "1.0.0",
-  "description": "BLDYR PC Builds Microservice",
+  "description": "BLDYR PC Builds",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "npm run clean && node_modules/.bin/webpack --env development --config config/webpack.config.js",
     "build:production": "npm run clean && node_modules/.bin/webpack --env production --config config/webpack.config.js",
-    "clean": "rm -rf build",
-    "start:dev": "npm run build:dev && NODE_ENV=development node dist/pc-builds.app.js",
-    "start": "npm run build:production && NODE_ENV=production node dist/pc-builds.app.js"
+    "clean": "rm -rf dist",
+    "start:dev": "npm run build:dev && node dist/pc-builds.app.js",
+    "start": "npm run build:production && node dist/pc-builds.app.js"
   },
   "repository": {
     "type": "git",
