@@ -3,7 +3,7 @@ services:
   api-gateway:
     image: api-gateway:0.0.1
     ports:
-      - "80:80"
+      - "8080:5000"
     environment:
       - NODE_ENV=production
     command: npm run start
@@ -11,7 +11,7 @@ services:
   pc-builds:
     image: pc-builds:0.0.1
     ports:
-      - "5011:5011"
+      - "8081:5011"
     environment:
       - NODE_ENV=production
     command: npm run start

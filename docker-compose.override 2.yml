@@ -1,0 +1,27 @@
+version: '3'
+services:
+  api-gateway:
+    volumes:
+      - ./services/api-gateway:/usr/src/api-gateway
+    ports:
+      - "5000:5000"
+    environment:
+      - DEBUG=test
+      - NODE_ENV=development
+
+  pc-builds:
+    volumes:
+      - ./services/pc-builds:/usr/src/pc-builds
+    ports:
+      - "5011:5011"
+    environment:
+      - DEBUG=test
+      - NODE_ENV=development
+
+  redis:
+    ports:
+      - "6379:6379"
+
+  postgres:
+    ports:
+      - 5432:5432
