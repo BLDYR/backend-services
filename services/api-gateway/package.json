@@ -1,15 +1,15 @@
 {
   "name": "api-gateway",
   "version": "1.0.0",
-  "description": "BLDYR API Gateway Microservice",
+  "description": "BLDYR API Gateway",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "npm run clean && node_modules/.bin/webpack --env development --config config/webpack.config.js",
-    "build:production": "npm run clean && node_modules/.bin/webpack --env production --config config/webpack.config.js",
-    "clean": "rm -rf build",
-    "start:dev": "npm run build:dev && NODE_ENV=development node dist/api-gateway.app.js",
-    "start": "npm run build:production && NODE_ENV=production node dist/api-gateway.app.js"
+    "build:production": "npm run clean && node_modules/.bin/webpack --config config/webpack.config.js",
+    "clean": "rm -rf dist",
+    "start:dev": "npm run build:dev && node dist/api-gateway.app.js",
+    "start": "npm run build:production && node dist/api-gateway.app.js"
   },
   "repository": {
     "type": "git",
