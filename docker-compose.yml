@@ -7,7 +7,7 @@ services:
     links:
       - redis
     networks:
-      - default
+      - bldyrnet
     restart:
       always
 
@@ -18,15 +18,19 @@ services:
     links:
       - redis
     networks:
-      - default
+      - bldyrnet
     restart:
       always
 
   redis:
     image: redis
+    networks:
+      - bldyrnet
 
-  postgres:
-    image: postgres:latest
+  db:
+    image: postgres
+    networks:
+      - bldyrnet
 
 networks:
-  default:
+  bldyrnet:

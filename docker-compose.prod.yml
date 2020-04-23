@@ -7,6 +7,8 @@ services:
     environment:
       - NODE_ENV=production
     command: npm run start
+    depends_on:
+      - db
 
   pc-builds:
     image: pc-builds:0.0.1
@@ -15,11 +17,13 @@ services:
     environment:
       - NODE_ENV=production
     command: npm run start
+    depends_on:
+      - db
 
   redis:
     ports:
       - "6379:6379"
 
-  postgres:
+  db:
     ports:
       - 5432:5432
